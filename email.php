@@ -12,7 +12,7 @@ if ( $pilihan == "1"){
   sleep(1);
   checkmail($nama);
 } elseif ( $pilihan == "2"){
-  getemail();
+  getEmail();
 } else {
   echo ("kamu belum memilih apapun! \n");
 }
@@ -73,7 +73,7 @@ function checkmail($nama){
   }
   
 
-function getemail(){
+function getEmail(){
     $randomsignature = mt_rand(1000, 9999);
     $randomangka2 = mt_rand(10, 99);
     $email = "@boximail.com";
@@ -105,12 +105,6 @@ function getemail(){
     $pecah = explode('<small', $ambilkata[1]);
     $hasil = explode(" ", $pecah[0]);
 
-    
-    //return $hasil;
-    //echo ($hasil[0]). "\n";
-    //echo ($hasil[1]). "\n"; 
-    //echo "Halo nama saya ".$hasil[0]." ".$hasil[1]." \n";
-    //echo "signature nama fake generator kamu adalah: ".$mt_rand."";
     curl_close($ch);
 
 
@@ -139,19 +133,11 @@ function getemail(){
     $result = curl_exec($ch);
     $cek = "".$hasil[0]."".$hasil[1]."".$randomangka2."".$email."";
     print_r ("EMAIL YANG SEDANG DI PAKAI ADALAH :\n".$cek."\n");
-    echo "**** SEDANG MENGECEK EMAIL ..\n";
+    print_r ("**** SEDANG MENGECEK EMAIL ..\n");
     print_r ("$result\n");
-/*
-    echo "[+] Ingin mengecek email kembali? (Y/N)\n";
-    $ulangi = trim(fgets(STDIN));
 
-    if ($ulangi == "Y") {
-      echo $result;
-    } else {
-      echo "selesai";
-    }
     curl_close($ch);
-    */
+    
 }
 
     ?>
